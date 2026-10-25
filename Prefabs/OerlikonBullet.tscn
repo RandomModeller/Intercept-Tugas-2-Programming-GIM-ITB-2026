@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://k5mkqx5ky2mx"]
+
+[ext_resource type="Script" uid="uid://ha7bww4g7pa2" path="res://Scripts/Projectile.gd" id="1_3cmim"]
+[ext_resource type="Material" uid="uid://c7hsqw7uyeqg4" path="res://Material/BulletGlow.tres" id="2_0eb46"]
+
+[node name="OerlikonBullet" type="Node3D" unique_id=1101051088 node_paths=PackedStringArray("raycast")]
+script = ExtResource("1_3cmim")
+projectile_speed = 167.0
+raycast = NodePath("RayCast3D")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1999559194]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0)
+radius = 0.1
+height = 0.3
+material = ExtResource("2_0eb46")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1490666835]
+target_position = Vector3(0, 0, 0.8)

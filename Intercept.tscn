@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://ce2pxu7t0dna"]
+
+[ext_resource type="Script" uid="uid://dibqw74r0amfu" path="res://Scripts/MovingTarget.gd" id="2_emkcy"]
+[ext_resource type="Script" uid="uid://cys4t25h1f2wi" path="res://Scripts/Spin.gd" id="3_japsh"]
+[ext_resource type="AudioStream" uid="uid://bcgnlabnd41nv" path="res://Audio/Ferret Engine Loop.ogg" id="3_pcss7"]
+[ext_resource type="PackedScene" uid="uid://bfgq8yi74njvo" path="res://Models/Skyshield Remake.blend" id="3_tpenv"]
+[ext_resource type="PackedScene" uid="uid://dfdg5dwt7qr8j" path="res://Models/Anka-S.blend" id="4_mt1yj"]
+[ext_resource type="Script" uid="uid://b613o7b7a11jr" path="res://Scripts/FireControlSystem.gd" id="5_wvab8"]
+[ext_resource type="PackedScene" uid="uid://k5mkqx5ky2mx" path="res://Prefabs/OerlikonBullet.tscn" id="6_l6osd"]
+[ext_resource type="Script" uid="uid://c00vmeuo2mod3" path="res://Scripts/Rangefinder.gd" id="7_6emq0"]
+[ext_resource type="AudioStream" uid="uid://cepm8mnvn8gu7" path="res://Audio/vulloop.ogg" id="7_l6osd"]
+[ext_resource type="PackedScene" uid="uid://dw3erj3tlbvld" path="res://Prefabs/Missile.tscn" id="8_bnamr"]
+[ext_resource type="Script" uid="uid://c1p1by05slsnh" path="res://Scripts/SpritePlacer.gd" id="8_ipj0n"]
+[ext_resource type="Material" uid="uid://dpm4qj10bdhrb" path="res://Material/ShootingIndicator.tres" id="8_wo17n"]
+[ext_resource type="Texture2D" uid="uid://cnn4ljg7f6fy1" path="res://Sprites/JHMCSCrosshair.png" id="9_wo17n"]
+[ext_resource type="Script" uid="uid://blrr3e5kbm3vv" path="res://Scripts/TargetManager.gd" id="14_7fn7g"]
+[ext_resource type="Script" uid="uid://27vk33qqi12h" path="res://Scripts/UIManager.gd" id="15_01sip"]
+[ext_resource type="AudioStream" uid="uid://dh2ncjr8jrufx" path="res://Audio/bumpswitch.ogg" id="16_2ctsd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xd07"]
+size = Vector3(17.03125, 1.84906, 7.3137207)
+
+[sub_resource type="SphereMesh" id="SphereMesh_cqt3d"]
+
+[node name="Node3D" type="Node3D" unique_id=1292716121]
+
+[node name="Anka-S Rigidbody" type="RigidBody3D" parent="." unique_id=2134963728]
+transform = Transform3D(0.9702957, 0.2419219, 0, -0.2419219, 0.9702957, 0, 0, 0, 1, -9.086073, 30.039566, 25.832323)
+gravity_scale = 0.0
+script = ExtResource("2_emkcy")
+speed = Vector3(0, 0, 12)
+angular_speed = Vector3(0, 15, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Anka-S Rigidbody" unique_id=186411982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7000631, 0)
+shape = SubResource("BoxShape3D_3xd07")
+
+[node name="Anka-S" parent="Anka-S Rigidbody" unique_id=2016789698 instance=ExtResource("4_mt1yj")]
+
+[node name="Cylinder_001" parent="Anka-S Rigidbody/Anka-S" index="3" unique_id=70418883]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.294828, -0.34747753)
+
+[node name="Cylinder_002" parent="Anka-S Rigidbody/Anka-S" index="4" unique_id=798646801]
+script = ExtResource("3_japsh")
+spin_speed = 1667.0
+
+[node name="Cylinder_013" parent="Anka-S Rigidbody/Anka-S" index="7" unique_id=476274080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.238661, 0.23313, 2.17594)
+
+[node name="Cylinder_014" parent="Anka-S Rigidbody/Anka-S" index="8" unique_id=1935434067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238661, 0.23313, 2.17594)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Anka-S Rigidbody/Anka-S/Fuselage" parent_id_path=PackedInt32Array(2016789698, 256194083) index="0" unique_id=322979157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3841858e-07, 0.9020483, -3.9682827)
+stream = ExtResource("3_pcss7")
+autoplay = true
+
+[node name="Nose Wheel" parent="Anka-S Rigidbody/Anka-S" index="17" unique_id=493441125]
+transform = Transform3D(-0.5672713, -3.8252857e-08, 8.273694e-08, -8.565558e-08, 0.25333726, -0.547942, -1.7763568e-15, -0.9454674, -0.14682065, 0, 0.34322256, 2.4607854)
+
+[node name="Skyshield Remake" parent="." unique_id=1230746322 node_paths=PackedStringArray("muzzle", "bearing", "pitch", "gun_audio") instance=ExtResource("3_tpenv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25057888, 0, 1.8757253)
+script = ExtResource("5_wvab8")
+projectile = ExtResource("6_l6osd")
+missile = ExtResource("8_bnamr")
+muzzle = NodePath("Base/Body/Cannon/Muzzle")
+bearing = NodePath("Base/Body")
+pitch = NodePath("Base/Body/Cannon")
+gun_audio = NodePath("Base/Body/Cannon/Muzzle/AudioStreamPlayer3D")
+missile_cooldown = 3.0
+turret_rotation_speed = 0.1
+
+[node name="Camera3D" type="Camera3D" parent="Skyshield Remake/Base/Body/Cannon" parent_id_path=PackedInt32Array(1230746322, 1812817558) index="0" unique_id=1596162310]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.8816156, 0.7092955, -0.81955594)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Skyshield Remake/Base/Body/Cannon/Camera3D" unique_id=1881796237]
+doppler_tracking = 2
+
+[node name="Muzzle" type="Node3D" parent="Skyshield Remake/Base/Body/Cannon" parent_id_path=PackedInt32Array(1230746322, 1812817558) index="1" unique_id=359170063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12573647, 4.0575476)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Skyshield Remake/Base/Body/Cannon/Muzzle" unique_id=1193776027]
+stream = ExtResource("7_l6osd")
+
+[node name="RayCast3D" type="RayCast3D" parent="Skyshield Remake/Base/Body/Cannon/Muzzle" unique_id=1295016919 node_paths=PackedStringArray("text")]
+target_position = Vector3(0, 0, 999)
+script = ExtResource("7_6emq0")
+text = NodePath("../../../../../../CanvasGroup/Node2D/Label")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=900258670]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1259751, 5.18904)
+visible = false
+material_override = ExtResource("8_wo17n")
+mesh = SubResource("SphereMesh_cqt3d")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=348505011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 37.089)
+visible = false
+material_override = ExtResource("8_wo17n")
+mesh = SubResource("SphereMesh_cqt3d")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=315374381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.265972, 32.160187)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1524600645]
+
+[node name="Hit" type="Sprite2D" parent="CanvasGroup" unique_id=972840902]
+position = Vector2(546, 310)
+rotation = 0.7853982
+scale = Vector2(2, 2)
+texture = ExtResource("9_wo17n")
+script = ExtResource("8_ipj0n")
+
+[node name="Node2D" type="Node2D" parent="CanvasGroup" unique_id=1839709290]
+position = Vector2(683, 397)
+scale = Vector2(1.6, 1.6)
+script = ExtResource("8_ipj0n")
+position_scale = Vector2(0.75, 0.6)
+
+[node name="Label" type="Label" parent="CanvasGroup/Node2D" unique_id=1761037265]
+offset_right = 100.0
+offset_bottom = 23.0
+text = "Range: 500m"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup" unique_id=2006292444]
+position = Vector2(546, 310)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("9_wo17n")
+script = ExtResource("8_ipj0n")
+
+[node name="TargetManager" type="Node3D" parent="." unique_id=1510249023 node_paths=PackedStringArray("target")]
+script = ExtResource("14_7fn7g")
+target = NodePath("../Anka-S Rigidbody")
+
+[node name="UIManager" type="Node3D" parent="." unique_id=2028560603 node_paths=PackedStringArray("hit_audio", "hit_icon")]
+script = ExtResource("15_01sip")
+hit_audio = NodePath("../HitAudio")
+hit_icon = NodePath("../CanvasGroup/Hit")
+
+[node name="HitAudio" type="AudioStreamPlayer3D" parent="." unique_id=279157295]
+stream = ExtResource("16_2ctsd")
+
+[editable path="Anka-S Rigidbody/Anka-S"]
+[editable path="Skyshield Remake"]

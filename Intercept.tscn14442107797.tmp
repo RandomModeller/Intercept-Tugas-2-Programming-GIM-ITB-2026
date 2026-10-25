@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://ce2pxu7t0dna"]
+
+[ext_resource type="Script" uid="uid://dibqw74r0amfu" path="res://Scripts/MovingTarget.gd" id="2_emkcy"]
+[ext_resource type="PackedScene" uid="uid://bfgq8yi74njvo" path="res://Models/Skyshield Remake.blend" id="3_tpenv"]
+[ext_resource type="PackedScene" uid="uid://dfdg5dwt7qr8j" path="res://Models/Anka-S.blend" id="4_mt1yj"]
+[ext_resource type="Script" uid="uid://b613o7b7a11jr" path="res://Scripts/FireControlSystem.gd" id="5_wvab8"]
+[ext_resource type="PackedScene" uid="uid://k5mkqx5ky2mx" path="res://Prefabs/OerlikonBullet.tscn" id="6_l6osd"]
+[ext_resource type="Script" uid="uid://c00vmeuo2mod3" path="res://Scripts/Rangefinder.gd" id="7_6emq0"]
+[ext_resource type="Texture2D" uid="uid://cr3pg5wvhcf1h" path="res://icon.svg" id="7_ipj0n"]
+[ext_resource type="AudioStream" uid="uid://cepm8mnvn8gu7" path="res://Audio/vulloop.ogg" id="7_l6osd"]
+[ext_resource type="Script" uid="uid://c1p1by05slsnh" path="res://Scripts/SpritePlaceCenter.gd" id="8_ipj0n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xd07"]
+size = Vector3(17.03125, 1.84906, 7.3137207)
+
+[node name="Node3D" type="Node3D" unique_id=1292716121]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=471461431]
+script = ExtResource("2_emkcy")
+
+[node name="Anka-S" parent="." unique_id=2016789698 instance=ExtResource("4_mt1yj")]
+transform = Transform3D(0.9702957, 0.2419219, 0, -0.2419219, 0.9702957, 0, 0, 0, 1, -7.008837, 18.875029, 21.660807)
+script = ExtResource("2_emkcy")
+speed = Vector3(0, 0, 12)
+angular_speed = Vector3(0, 15, 0)
+
+[node name="Cylinder_001" parent="Anka-S" index="3" unique_id=70418883]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.294828, -0.34747753)
+
+[node name="Cylinder_013" parent="Anka-S" index="7" unique_id=476274080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.238661, 0.23313, 2.17594)
+
+[node name="Cylinder_014" parent="Anka-S" index="8" unique_id=1935434067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238661, 0.23313, 2.17594)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Anka-S/Fuselage" parent_id_path=PackedInt32Array(2016789698, 256194083) index="0" unique_id=186411982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7035694, -0.115112305)
+shape = SubResource("BoxShape3D_3xd07")
+
+[node name="Nose Wheel" parent="Anka-S" index="17" unique_id=493441125]
+transform = Transform3D(-0.5672713, -3.8252857e-08, 8.273694e-08, -8.565558e-08, 0.25333726, -0.547942, -1.7763568e-15, -0.9454674, -0.14682065, 0, 0.34322256, 2.4607854)
+
+[node name="Skyshield Remake" parent="." unique_id=1230746322 node_paths=PackedStringArray("muzzle", "bearing", "pitch", "gun_audio") instance=ExtResource("3_tpenv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25057888, 0, 1.8757253)
+script = ExtResource("5_wvab8")
+projectile = ExtResource("6_l6osd")
+muzzle = NodePath("Base/Body/Cannon/Muzzle")
+bearing = NodePath("Base/Body")
+pitch = NodePath("Base/Body/Cannon")
+gun_audio = NodePath("Base/Body/Cannon/Muzzle/AudioStreamPlayer3D")
+turret_rotation_speed = 0.1
+
+[node name="Camera3D" type="Camera3D" parent="Skyshield Remake/Base/Body/Cannon" parent_id_path=PackedInt32Array(1230746322, 1812817558) index="0" unique_id=1596162310]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.0664942e-07, 0.2091341, 2.3637938)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Skyshield Remake/Base/Body/Cannon/Camera3D" unique_id=1881796237]
+
+[node name="Muzzle" type="Node3D" parent="Skyshield Remake/Base/Body/Cannon" parent_id_path=PackedInt32Array(1230746322, 1812817558) index="1" unique_id=359170063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12573647, 4.0575476)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Skyshield Remake/Base/Body/Cannon/Muzzle" unique_id=1193776027]
+stream = ExtResource("7_l6osd")
+
+[node name="RayCast3D" type="RayCast3D" parent="Skyshield Remake/Base/Body/Cannon/Muzzle" unique_id=1295016919]
+target_position = Vector3(0, 0, 999)
+script = ExtResource("7_6emq0")
+
+[node name="OerlikonBullet" parent="." unique_id=1101051088 instance=ExtResource("6_l6osd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8911288, 0, 7.482946)
+visible = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=315374381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.265972, 32.160187)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=1524600645]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup" unique_id=2006292444]
+position = Vector2(546, 310)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_ipj0n")
+script = ExtResource("8_ipj0n")
+
+[node name="Label" type="Label" parent="CanvasGroup" unique_id=1761037265]
+offset_left = 897.0
+offset_top = 452.0
+offset_right = 937.0
+offset_bottom = 475.0
+text = "Range: 500m"
+
+[editable path="Anka-S"]
+[editable path="Skyshield Remake"]
