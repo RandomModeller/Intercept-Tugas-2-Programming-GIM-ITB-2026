@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://lljoiqu2ndny"]
+
+[ext_resource type="Script" uid="uid://dibqw74r0amfu" path="res://Scripts/MovingTarget.gd" id="1_n6lq0"]
+[ext_resource type="PackedScene" uid="uid://dfdg5dwt7qr8j" path="res://Models/Anka-S.blend" id="2_coe1n"]
+[ext_resource type="Script" uid="uid://cys4t25h1f2wi" path="res://Scripts/Spin.gd" id="3_gp46h"]
+[ext_resource type="AudioStream" uid="uid://bcgnlabnd41nv" path="res://Audio/Ferret Engine Loop.ogg" id="4_qafwb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xd07"]
+size = Vector3(17.03125, 2.3547058, 7.3137207)
+
+[node name="Anka-S Rigidbody" type="RigidBody3D" unique_id=325591113]
+transform = Transform3D(0.9702957, 0.2419219, 0, -0.2419219, 0.9702957, 0, 0, 0, 1, 0, 0, 0)
+gravity_scale = 0.0
+script = ExtResource("1_n6lq0")
+speed = Vector3(0, 0, 12)
+angular_speed = Vector3(0, 15, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1657781996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8146973e-06, 0.9528885, 0)
+shape = SubResource("BoxShape3D_3xd07")
+
+[node name="Anka-S" parent="." unique_id=1348635150 instance=ExtResource("2_coe1n")]
+
+[node name="Cylinder_001" parent="Anka-S" index="3" unique_id=347252362]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.294828, -0.34747753)
+
+[node name="Cylinder_002" parent="Anka-S" index="4" unique_id=2024105941]
+script = ExtResource("3_gp46h")
+spin_speed = 1667.0
+
+[node name="Cylinder_013" parent="Anka-S" index="7" unique_id=1715805459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.238661, 0.23313, 2.17594)
+
+[node name="Cylinder_014" parent="Anka-S" index="8" unique_id=680089296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238661, 0.23313, 2.17594)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Anka-S/Fuselage" parent_id_path=PackedInt32Array(1348635150, 170110610) index="0" unique_id=1663073059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3841858e-07, 0.9020483, -3.9682827)
+stream = ExtResource("4_qafwb")
+autoplay = true
+
+[node name="Nose Wheel" parent="Anka-S" index="17" unique_id=1510018777]
+transform = Transform3D(-0.5672713, -3.8252857e-08, 8.273694e-08, -8.565558e-08, 0.25333726, -0.547942, -1.7763568e-15, -0.9454674, -0.14682065, 0, 0.34322256, 2.4607854)
+
+[editable path="Anka-S"]

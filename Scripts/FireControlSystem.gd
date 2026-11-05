@@ -2,7 +2,9 @@ extends Node3D
 
 @export var projectile: PackedScene
 @export var missile: PackedScene
+@export var target: Node3D
 @export var muzzle: Node3D
+@export var missileMuzzle: Node3D
 @export var bearing: Node3D
 @export var pitch: Node3D
 @export var gun_audio: AudioStreamPlayer3D
@@ -17,13 +19,14 @@ var next_missile_time: float = 0
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	var flag1: bool = Time.get_unix_time_from_system() >= next_shoot_time
 	var flag2: bool = Time.get_unix_time_from_system() >= next_missile_time
 	
 	if Input.is_action_pressed("Shoot"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		if flag1:
 			SpawnBullet()
 		if not gun_audio.playing:
@@ -51,10 +54,10 @@ func SpawnMissile() -> void:
 	
 	add_child(missile)
 
-	missile.global_position = muzzle.global_position
-	missile.global_rotation = muzzle.global_rotation
+	missile.global_position = missileMuzzle.global_position
+	missile.global_rotation = missileMuzzle.global_rotation
 	
-	missile.velocity = muzzle.global_transform.basis.z * missile.projectile_speed
+	missile.velocity = missileMuzzle.global_transform.basis.z * missile.projectile_speed
 
 	next_missile_time = Time.get_unix_time_from_system() + missile_cooldown
 

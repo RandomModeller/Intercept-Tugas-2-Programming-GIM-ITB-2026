@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dc4stusbhlk27"]
+
+[ext_resource type="Texture2D" uid="uid://bicd5f8eylt7q" path="res://Sprites/Radar Bugged Target.png" id="1_3dh5v"]
+
+[node name="RadarNode" type="Sprite2D" unique_id=1770355815]
+scale = Vector2(5.029334, 5.029335)
+texture = ExtResource("1_3dh5v")
