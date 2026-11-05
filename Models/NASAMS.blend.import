@@ -1,0 +1,195 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dokjpr37co5x6"
+path="res://.godot/imported/NASAMS.blend-8a52d062d6a78a5892bc9a31872186a1.scn"
+
+[deps]
+
+source_file="res://Models/NASAMS.blend"
+dest_files=["res://.godot/imported/NASAMS.blend-8a52d062d6a78a5892bc9a31872186a1.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"nodes": {
+"PATH:Cube_002": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cube_003": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cube_004": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cube_005": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cube_006": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cube_007": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cube_011": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cube": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cube/0_15382 m": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cube/0_15382 m/AMRAAM": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cube/0_15382 m/Cover Octagon": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cube/0_15382 m/Cover_001": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cube/0_15382 m/Cover_Down": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cube/0_15382 m/Cover_Up": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cube/0_15382 m/Old AMRAAM": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cube/Cube_001": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cube/Cylinder_001": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cube/Cylinder_001/Cylinder_002": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cube/Empty_005": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cube_012": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cube_012/Cylinder_003": {
+"import/skip_import": true
+},
+"PATH:Cube_002/Cylinder/Cylinder_004": {
+"import/skip_import": true
+},
+"PATH:Cube_008": {
+"import/skip_import": true
+},
+"PATH:Cube_009": {
+"import/skip_import": true
+},
+"PATH:Cube_013": {
+"import/skip_import": true
+},
+"PATH:Cube_015": {
+"import/skip_import": true
+},
+"PATH:Cube_018": {
+"import/skip_import": true
+},
+"PATH:Cube_018/Cube_019": {
+"import/skip_import": true
+},
+"PATH:Cube_018/Cylinder_013": {
+"import/skip_import": true
+},
+"PATH:Cube_018/Cylinder_014": {
+"import/skip_import": true
+},
+"PATH:Cube_018/Cylinder_015": {
+"import/skip_import": true
+},
+"PATH:Cube_018/Cylinder_015/Cube_017": {
+"import/skip_import": true
+},
+"PATH:Cube_018/Cylinder_015/Cylinder_016": {
+"import/skip_import": true
+},
+"PATH:Cube_018/Empty_008": {
+"import/skip_import": true
+},
+"PATH:Cube_018/Empty_008/Cylinder_011": {
+"import/skip_import": true
+},
+"PATH:Cube_018/Empty_008/Cylinder_011/Cylinder_012": {
+"import/skip_import": true
+},
+"PATH:Empty": {
+"import/skip_import": true
+},
+"PATH:Empty_001": {
+"import/skip_import": true
+},
+"PATH:Empty_002": {
+"import/skip_import": true
+},
+"PATH:Empty_003": {
+"import/skip_import": true
+},
+"PATH:Empty_004": {
+"import/skip_import": true
+},
+"PATH:Empty_006": {
+"import/skip_import": true
+}
+}
+}
+blender/nodes/visible=0
+blender/nodes/active_collection_only=false
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=true
+blender/nodes/custom_properties=true
+blender/nodes/modifiers=1
+blender/meshes/vertex_colors=1
+blender/meshes/uvs=true
+blender/meshes/normals=true
+blender/meshes/export_geometry_nodes_instances=false
+blender/meshes/gpu_instances=false
+blender/meshes/tangents=true
+blender/meshes/skins=2
+blender/meshes/export_bones_deforming_mesh_only=false
+blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
+blender/animation/limit_playback=true
+blender/animation/always_sample=true
+blender/animation/group_tracks=true
+gltf/naming_version=2
+gltf/texture_map_mode=1

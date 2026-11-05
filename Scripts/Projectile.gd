@@ -7,6 +7,7 @@ extends Node3D
 
 var duration: float = 0
 var velocity: Vector3
+var damage: float = 10
 
 var gravity_magnitude = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready
@@ -28,6 +29,9 @@ func _physics_process(delta: float) -> void:
 	if raycast.is_colliding():
 		print("HIT!")
 		UI_manager.hit()
+
+		raycast.get_collider().hp -= damage
+
 		queue_free()
 
 	velocity.y -= gravity_magnitude * delta

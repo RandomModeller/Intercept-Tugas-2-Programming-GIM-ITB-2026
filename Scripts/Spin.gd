@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var spin_speed: float = 10
+@export var directiom: Vector3 = Vector3.FORWARD
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,4 +9,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	rotate_object_local(Vector3.FORWARD, deg_to_rad(spin_speed * delta))
+	rotate_object_local(directiom, deg_to_rad(spin_speed * delta))

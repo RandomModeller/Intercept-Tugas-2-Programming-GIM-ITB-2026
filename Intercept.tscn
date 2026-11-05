@@ -1,10 +1,7 @@
 [gd_scene format=3 uid="uid://ce2pxu7t0dna"]
 
-[ext_resource type="Script" uid="uid://dibqw74r0amfu" path="res://Scripts/MovingTarget.gd" id="2_emkcy"]
-[ext_resource type="Script" uid="uid://cys4t25h1f2wi" path="res://Scripts/Spin.gd" id="3_japsh"]
-[ext_resource type="AudioStream" uid="uid://bcgnlabnd41nv" path="res://Audio/Ferret Engine Loop.ogg" id="3_pcss7"]
+[ext_resource type="PackedScene" uid="uid://lljoiqu2ndny" path="res://Prefabs/anka_s_rigidbody.tscn" id="1_btfij"]
 [ext_resource type="PackedScene" uid="uid://bfgq8yi74njvo" path="res://Models/Skyshield Remake.blend" id="3_tpenv"]
-[ext_resource type="PackedScene" uid="uid://dfdg5dwt7qr8j" path="res://Models/Anka-S.blend" id="4_mt1yj"]
 [ext_resource type="Script" uid="uid://b613o7b7a11jr" path="res://Scripts/FireControlSystem.gd" id="5_wvab8"]
 [ext_resource type="PackedScene" uid="uid://k5mkqx5ky2mx" path="res://Prefabs/OerlikonBullet.tscn" id="6_l6osd"]
 [ext_resource type="Script" uid="uid://c00vmeuo2mod3" path="res://Scripts/Rangefinder.gd" id="7_6emq0"]
@@ -14,69 +11,47 @@
 [ext_resource type="Material" uid="uid://dpm4qj10bdhrb" path="res://Material/ShootingIndicator.tres" id="8_wo17n"]
 [ext_resource type="Texture2D" uid="uid://cnn4ljg7f6fy1" path="res://Sprites/JHMCSCrosshair.png" id="9_wo17n"]
 [ext_resource type="Script" uid="uid://blrr3e5kbm3vv" path="res://Scripts/TargetManager.gd" id="14_7fn7g"]
+[ext_resource type="Texture2D" uid="uid://bicd5f8eylt7q" path="res://Sprites/Radar Bugged Target.png" id="14_kncjn"]
+[ext_resource type="Texture2D" uid="uid://3tl2apmkc4s2" path="res://Sprites/Grid.png" id="14_l67l8"]
 [ext_resource type="Script" uid="uid://27vk33qqi12h" path="res://Scripts/UIManager.gd" id="15_01sip"]
 [ext_resource type="AudioStream" uid="uid://dh2ncjr8jrufx" path="res://Audio/bumpswitch.ogg" id="16_2ctsd"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3xd07"]
-size = Vector3(17.03125, 1.84906, 7.3137207)
+[ext_resource type="PackedScene" uid="uid://dc4stusbhlk27" path="res://Prefabs/radar_node.tscn" id="16_e5w6l"]
+[ext_resource type="Script" uid="uid://b4dn6iqd6v00s" path="res://Scripts/Radar.gd" id="16_u1jfl"]
+[ext_resource type="Script" uid="uid://cp6oth2n63mba" path="res://Scripts/SaveManager.gd" id="17_e5w6l"]
+[ext_resource type="PackedScene" uid="uid://dokjpr37co5x6" path="res://Models/NASAMS.blend" id="17_q1rn7"]
+[ext_resource type="PackedScene" uid="uid://cem6lh8myiryt" path="res://Prefabs/amraam_001.tscn" id="18_w1aje"]
+[ext_resource type="Texture2D" uid="uid://dffs5mdbhrwqm" path="res://Sprites/CircleThin.png" id="19_bx2p0"]
+[ext_resource type="Script" uid="uid://cys4t25h1f2wi" path="res://Scripts/Spin.gd" id="19_kncjn"]
+[ext_resource type="Script" uid="uid://dig72r5n07838" path="res://Scripts/BallisticCalculator.gd" id="20_btfij"]
+[ext_resource type="Texture2D" uid="uid://cj7xyiuj2uqvm" path="res://Sprites/JHMCSSidewinderDiamond.png" id="22_u1jfl"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_cqt3d"]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_3xd07"]
+
 [node name="Node3D" type="Node3D" unique_id=1292716121]
 
-[node name="Anka-S Rigidbody" type="RigidBody3D" parent="." unique_id=2134963728]
-transform = Transform3D(0.9702957, 0.2419219, 0, -0.2419219, 0.9702957, 0, 0, 0, 1, -9.086073, 30.039566, 25.832323)
-gravity_scale = 0.0
-script = ExtResource("2_emkcy")
-speed = Vector3(0, 0, 12)
-angular_speed = Vector3(0, 15, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Anka-S Rigidbody" unique_id=186411982]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7000631, 0)
-shape = SubResource("BoxShape3D_3xd07")
-
-[node name="Anka-S" parent="Anka-S Rigidbody" unique_id=2016789698 instance=ExtResource("4_mt1yj")]
-
-[node name="Cylinder_001" parent="Anka-S Rigidbody/Anka-S" index="3" unique_id=70418883]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.294828, -0.34747753)
-
-[node name="Cylinder_002" parent="Anka-S Rigidbody/Anka-S" index="4" unique_id=798646801]
-script = ExtResource("3_japsh")
-spin_speed = 1667.0
-
-[node name="Cylinder_013" parent="Anka-S Rigidbody/Anka-S" index="7" unique_id=476274080]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.238661, 0.23313, 2.17594)
-
-[node name="Cylinder_014" parent="Anka-S Rigidbody/Anka-S" index="8" unique_id=1935434067]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238661, 0.23313, 2.17594)
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Anka-S Rigidbody/Anka-S/Fuselage" parent_id_path=PackedInt32Array(2016789698, 256194083) index="0" unique_id=322979157]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3841858e-07, 0.9020483, -3.9682827)
-stream = ExtResource("3_pcss7")
-autoplay = true
-
-[node name="Nose Wheel" parent="Anka-S Rigidbody/Anka-S" index="17" unique_id=493441125]
-transform = Transform3D(-0.5672713, -3.8252857e-08, 8.273694e-08, -8.565558e-08, 0.25333726, -0.547942, -1.7763568e-15, -0.9454674, -0.14682065, 0, 0.34322256, 2.4607854)
-
-[node name="Skyshield Remake" parent="." unique_id=1230746322 node_paths=PackedStringArray("muzzle", "bearing", "pitch", "gun_audio") instance=ExtResource("3_tpenv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25057888, 0, 1.8757253)
+[node name="Skyshield Remake" parent="." unique_id=1230746322 node_paths=PackedStringArray("target", "muzzle", "missileMuzzle", "bearing", "pitch", "gun_audio") instance=ExtResource("3_tpenv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25057888, 0.7232077, 1.8757253)
 script = ExtResource("5_wvab8")
 projectile = ExtResource("6_l6osd")
 missile = ExtResource("8_bnamr")
+target = NodePath("")
 muzzle = NodePath("Base/Body/Cannon/Muzzle")
+missileMuzzle = NodePath("../NASAMS/NASAMS Base/NASAMS Turret Base/NASAMS Launcher/AMRAAM_001")
 bearing = NodePath("Base/Body")
 pitch = NodePath("Base/Body/Cannon")
 gun_audio = NodePath("Base/Body/Cannon/Muzzle/AudioStreamPlayer3D")
 missile_cooldown = 3.0
 turret_rotation_speed = 0.1
 
-[node name="Camera3D" type="Camera3D" parent="Skyshield Remake/Base/Body/Cannon" parent_id_path=PackedInt32Array(1230746322, 1812817558) index="0" unique_id=1596162310]
+[node name="Camera3D" type="Camera3D" parent="Skyshield Remake/Base/Body/Cannon" parent_id_path=PackedInt32Array(1230746322, 1795819163) index="0" unique_id=1596162310]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.8816156, 0.7092955, -0.81955594)
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Skyshield Remake/Base/Body/Cannon/Camera3D" unique_id=1881796237]
 doppler_tracking = 2
 
-[node name="Muzzle" type="Node3D" parent="Skyshield Remake/Base/Body/Cannon" parent_id_path=PackedInt32Array(1230746322, 1812817558) index="1" unique_id=359170063]
+[node name="Muzzle" type="Node3D" parent="Skyshield Remake/Base/Body/Cannon" parent_id_path=PackedInt32Array(1230746322, 1795819163) index="1" unique_id=359170063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12573647, 4.0575476)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Skyshield Remake/Base/Body/Cannon/Muzzle" unique_id=1193776027]
@@ -85,7 +60,7 @@ stream = ExtResource("7_l6osd")
 [node name="RayCast3D" type="RayCast3D" parent="Skyshield Remake/Base/Body/Cannon/Muzzle" unique_id=1295016919 node_paths=PackedStringArray("text")]
 target_position = Vector3(0, 0, 999)
 script = ExtResource("7_6emq0")
-text = NodePath("../../../../../../CanvasGroup/Node2D/Label")
+text = NodePath("../../../../../../CanvasGroup/Range/Label")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=900258670]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1259751, 5.18904)
@@ -111,34 +86,116 @@ scale = Vector2(2, 2)
 texture = ExtResource("9_wo17n")
 script = ExtResource("8_ipj0n")
 
-[node name="Node2D" type="Node2D" parent="CanvasGroup" unique_id=1839709290]
+[node name="Grid" type="Sprite2D" parent="CanvasGroup" unique_id=1354191641]
+position = Vector2(1016.5, 122.500015)
+scale = Vector2(0.6343749, 0.6343749)
+texture = ExtResource("14_l67l8")
+script = ExtResource("8_ipj0n")
+position_scale = Vector2(0.9, 0.2)
+
+[node name="Radar" type="Node2D" parent="CanvasGroup/Grid" unique_id=1937322341 node_paths=PackedStringArray("radar_grid", "turret_direction", "turret_bearing", "target_manager")]
+script = ExtResource("16_u1jfl")
+radar_blip = ExtResource("16_e5w6l")
+radar_grid = NodePath("..")
+turret_direction = NodePath("../Sprite2D")
+turret_bearing = NodePath("../../../Skyshield Remake/Base/Body")
+target_manager = NodePath("../../../TargetManager")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup/Grid" unique_id=1385092029]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(1.151, 19.283)
+texture = ExtResource("14_kncjn")
+offset = Vector2(0, -4)
+
+[node name="Range" type="Node2D" parent="CanvasGroup" unique_id=1839709290]
 position = Vector2(683, 397)
 scale = Vector2(1.6, 1.6)
 script = ExtResource("8_ipj0n")
 position_scale = Vector2(0.75, 0.6)
 
-[node name="Label" type="Label" parent="CanvasGroup/Node2D" unique_id=1761037265]
+[node name="Label" type="Label" parent="CanvasGroup/Range" unique_id=1761037265]
 offset_right = 100.0
 offset_bottom = 23.0
 text = "Range: 500m"
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup" unique_id=2006292444]
+[node name="Splashes Count" type="Node2D" parent="CanvasGroup" unique_id=809969694]
+position = Vector2(683, 397)
+scale = Vector2(1.6, 1.6)
+script = ExtResource("8_ipj0n")
+position_scale = Vector2(0.05, 0.07)
+
+[node name="Label" type="Label" parent="CanvasGroup/Splashes Count" unique_id=2077597672]
+offset_right = 115.625
+offset_bottom = 23.0
+text = "Splashes:"
+
+[node name="Crosshair" type="Sprite2D" parent="CanvasGroup" unique_id=2006292444]
 position = Vector2(546, 310)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("9_wo17n")
 script = ExtResource("8_ipj0n")
 
-[node name="TargetManager" type="Node3D" parent="." unique_id=1510249023 node_paths=PackedStringArray("target")]
+[node name="TargetManager" type="Node3D" parent="." unique_id=1510249023 node_paths=PackedStringArray("radar", "muzzle")]
 script = ExtResource("14_7fn7g")
-target = NodePath("../Anka-S Rigidbody")
+air_target = ExtResource("1_btfij")
+radar = NodePath("../CanvasGroup/Grid/Radar")
+muzzle = NodePath("../Skyshield Remake/Base/Body/Cannon/Muzzle")
 
-[node name="UIManager" type="Node3D" parent="." unique_id=2028560603 node_paths=PackedStringArray("hit_audio", "hit_icon")]
+[node name="UIManager" type="Node3D" parent="." unique_id=2028560603 node_paths=PackedStringArray("fire_control_system", "ballistic_calculator", "target_manager", "hit_audio", "hit_icon", "lead_icon", "highlight", "splashes_display", "save_manager")]
 script = ExtResource("15_01sip")
+fire_control_system = NodePath("../Skyshield Remake")
+ballistic_calculator = NodePath("../BallisticCalculator")
+target_manager = NodePath("../TargetManager")
 hit_audio = NodePath("../HitAudio")
 hit_icon = NodePath("../CanvasGroup/Hit")
+lead_icon = NodePath("../LeadIcon")
+highlight = NodePath("../TargetIndicator")
+splashes_display = NodePath("../CanvasGroup/Splashes Count/Label")
+save_manager = NodePath("../SaveManager")
+
+[node name="SaveManager" type="Node3D" parent="." unique_id=539415532]
+script = ExtResource("17_e5w6l")
 
 [node name="HitAudio" type="AudioStreamPlayer3D" parent="." unique_id=279157295]
 stream = ExtResource("16_2ctsd")
 
-[editable path="Anka-S Rigidbody/Anka-S"]
+[node name="NASAMS" parent="." unique_id=536354290 instance=ExtResource("17_q1rn7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5915284, -1.1920929e-07, -3.1675158)
+
+[node name="AN_MPQ-64 Sentinel" parent="NASAMS" index="0" unique_id=953274046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24292278, 0.80545735, 2.9730406)
+
+[node name="AN_MPQ-64 Sentinel Base" parent="NASAMS/AN_MPQ-64 Sentinel" index="0" unique_id=1057280352]
+script = ExtResource("19_kncjn")
+spin_speed = 55.0
+directiom = Vector3(0, 1, 0)
+
+[node name="NASAMS Base" parent="NASAMS" index="1" unique_id=1257563452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.010698, -0.34196734, -9.017215)
+
+[node name="AMRAAM_001" parent="NASAMS/NASAMS Base/NASAMS Turret Base/NASAMS Launcher/AMRAAM_001" parent_id_path=PackedInt32Array(536354290, 750927405) index="0" unique_id=1320970628 instance=ExtResource("18_w1aje")]
+transform = Transform3D(0.7071067, 7.4505806e-08, 0.7071068, 0.70710677, 2.9802322e-08, -0.7071067, -1.7881393e-07, 0.99999994, -5.9604645e-08, -6.5545654, -3.5538282, 7.018735)
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=18490971]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0.010307193, 0, -0.0041429996)
+mesh = SubResource("PlaneMesh_3xd07")
+
+[node name="LeadIcon" type="Sprite3D" parent="." unique_id=1991424327]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 12.5766735)
+modulate = Color(0, 1, 0, 0.45490196)
+billboard = 1
+fixed_size = true
+texture = ExtResource("19_bx2p0")
+
+[node name="TargetIndicator" type="Sprite3D" parent="." unique_id=883700060]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 3.982461, 19.223305)
+modulate = Color(0, 1, 0, 0.45490196)
+billboard = 1
+fixed_size = true
+texture = ExtResource("22_u1jfl")
+
+[node name="BallisticCalculator" type="Node3D" parent="." unique_id=1355244991]
+script = ExtResource("20_btfij")
+
 [editable path="Skyshield Remake"]
+[editable path="NASAMS"]
